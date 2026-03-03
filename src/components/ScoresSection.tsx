@@ -595,7 +595,7 @@ export default function ScoresSection() {
             <h2 className="font-display text-[48px] leading-[44px] md:text-[72px] md:leading-[68px] text-black/80">
               How each platform scored
             </h2>
-            <p className="text-[14px] leading-6 text-black/55">
+            <p className="text-[16px] md:text-[14px] leading-6 text-black/55">
               Weighted scores across 12 evaluation criteria — UX, content, technical performance, and business readiness. Click any card to see the full breakdown.
             </p>
           </div>
