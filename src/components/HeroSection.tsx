@@ -9,7 +9,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="pt-24 pb-16 md:pt-[148px] md:pb-32 flex flex-col items-center px-4 md:px-6">
+    <section className="pt-32 pb-16 md:pt-[148px] md:pb-32 flex flex-col items-center px-4 md:px-6">
       <div
         className="max-w-[1200px] w-full flex flex-col gap-10 md:gap-14 items-center"
         style={{
@@ -40,11 +40,18 @@ export default function HeroSection() {
           </button>
         </div>
 
-        {/* Platform illustration */}
+        {/* Platform illustration — desktop */}
         <img
           src="/illustration-container.png"
           alt="Platform comparison illustration"
-          className="w-full max-w-[1200px] object-contain"
+          className="hidden md:block w-full max-w-[1200px] object-contain"
+        />
+
+        {/* Platform illustration — mobile */}
+        <img
+          src="/illustration-mobile.png"
+          alt="Platform comparison illustration"
+          className="md:hidden w-full object-contain"
         />
 
       </div>

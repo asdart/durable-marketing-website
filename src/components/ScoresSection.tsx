@@ -446,8 +446,6 @@ function PlatformCard({
   );
 }
 
-// ─── Custom pill scrollbar ────────────────────────────────────────────────────
-
 function CustomScrollbar({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElement | null> }) {
   const [progress, setProgress] = useState(0);
   const [visibleRatio, setVisibleRatio] = useState(0.33);
@@ -482,11 +480,9 @@ function CustomScrollbar({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElem
     e.preventDefault();
     e.stopPropagation();
     isDragging.current = true;
-
     const startX = e.clientX;
     const startScroll = el.scrollLeft;
     const maxScroll = el.scrollWidth - el.clientWidth;
-
     const onMove = (ev: MouseEvent) => {
       const dx = ev.clientX - startX;
       const scrollDelta = maxOffset > 0 ? (dx / maxOffset) * maxScroll : 0;
@@ -514,7 +510,6 @@ function CustomScrollbar({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElem
   return (
     <div className="flex justify-center mt-6">
       <div className="bg-black/[0.05] rounded-full flex items-center h-[22px] px-[5px] gap-3">
-        {/* Track */}
         <div
           ref={trackRef}
           className="relative cursor-pointer"
@@ -533,7 +528,6 @@ function CustomScrollbar({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElem
             onClick={e => e.stopPropagation()}
           />
         </div>
-
       </div>
     </div>
   );
@@ -544,14 +538,6 @@ export default function ScoresSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [started, setStarted] = useState(false);
   const [expandedSet, setExpandedSet] = useState<Set<number>>(new Set());
-  const [trailingPad, setTrailingPad] = useState(24);
-
-  useEffect(() => {
-    const update = () => setTrailingPad(Math.max(24, (window.innerWidth - 1200) / 2 + 24));
-    update();
-    window.addEventListener('resize', update);
-    return () => window.removeEventListener('resize', update);
-  }, []);
 
   function handleToggle(index: number) {
     setExpandedSet(prev => {
@@ -568,7 +554,7 @@ export default function ScoresSection() {
       ([entry]) => {
         if (entry.isIntersecting) { setStarted(true); observer.disconnect(); }
       },
-      { threshold: 0.1 }
+      { threshold: 0.7 }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -605,8 +591,8 @@ export default function ScoresSection() {
       {/* Mobile: horizontal scroll with peek */}
       <div className="md:hidden w-full overflow-x-auto no-scrollbar">
         {/* Block wrapper: padding-right on block elements IS included in scroll width, unlike on flex containers */}
-        <div style={{ paddingLeft: 16, paddingRight: 16 }}>
-          <div className="flex gap-[17px] items-start pb-2">
+        <div style={{ paddingLeft: 16, paddingRight: 32 }}>
+          <div className="flex gap-4 items-start">
             {cards}
           </div>
         </div>
@@ -614,11 +600,8 @@ export default function ScoresSection() {
 
       {/* Desktop: horizontal scroll — full viewport width */}
       <div ref={scrollRef} className="hidden md:block w-full overflow-x-auto no-scrollbar">
-        {/* Block wrapper: padding-right on block elements IS included in scroll width, unlike on flex containers */}
-        <div style={{ paddingLeft: trailingPad, paddingRight: trailingPad }}>
-          <div className="flex gap-[17px] items-start pb-2">
-            {cards}
-          </div>
+        <div className="inline-flex gap-4 items-start px-[max(24px,calc((100vw-1200px)/2+24px))]">
+          {cards}
         </div>
       </div>
 
