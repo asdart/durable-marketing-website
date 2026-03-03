@@ -246,7 +246,7 @@ export default function ComparisonTable() {
                   <div className="w-[268px] flex-shrink-0 px-6 py-3 bg-black/[0.03]">
                     <span className="text-[13px] font-semibold text-black/55 uppercase tracking-wider">{section.title}</span>
                   </div>
-                  <div className="flex-1 bg-black/[0.03] border-l-2 border-r-2 border-[#519a73]" />
+                  <div className="relative z-[1] flex-1 bg-black/[0.03] border-l-2 border-r-2 border-[#519a73]" />
                   <div className="flex-[2] bg-black/[0.03]" />
                 </div>
 
@@ -259,7 +259,7 @@ export default function ComparisonTable() {
                         <p className="text-[12px] text-black/40 leading-4 mt-0.5">{row.desc}</p>
                       </div>
                       <div className="flex flex-1 items-center">
-                        <div className={`flex-1 px-6 py-4 bg-white self-stretch flex items-center justify-center border-l-2 border-r-2 border-[#519a73] ${isLastRow ? 'rounded-b-2xl' : ''}`}>
+                        <div className={`relative z-[1] flex-1 px-6 py-4 bg-white self-stretch flex items-center justify-center border-l-2 border-r-2 border-[#519a73] ${isLastRow ? 'rounded-b-2xl border-b-2' : ''}`}>
                           <ScoreBar score={row.durable} />
                         </div>
                         <div className="flex-1 px-6 py-4 bg-white self-stretch flex items-center justify-center">
