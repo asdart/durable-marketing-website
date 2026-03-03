@@ -599,9 +599,9 @@ export default function ScoresSection() {
 
       {/* Mobile: horizontal scroll with peek */}
       <div className="md:hidden w-full overflow-x-auto no-scrollbar">
-        {/* Block wrapper so padding-right is respected in scroll width */}
-        <div className="px-4">
-          <div className="flex gap-4 items-start">
+        {/* Block wrapper: padding-right on block elements IS included in scroll width, unlike on flex containers */}
+        <div style={{ paddingLeft: 16, paddingRight: 16 }}>
+          <div className="flex gap-[17px] items-start pb-2">
             {cards}
           </div>
         </div>
