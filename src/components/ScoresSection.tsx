@@ -370,19 +370,24 @@ function PlatformCard({
 
   return (
     <div className="w-[calc(100vw-64px)] flex-shrink-0 md:w-[385px] bg-black/[0.03] rounded-3xl flex flex-col items-center">
-      <div className="flex flex-col gap-10 items-center pt-8 pb-6 px-8 w-full">
+      <div className="flex flex-col gap-6 md:gap-10 items-center pt-6 px-6 pb-6 md:pt-8 md:px-8 md:pb-6 w-full">
         {/* Gauge + badge + number */}
         <div className="flex flex-col items-center w-full">
-          <div className="relative w-[268px] h-[160px]">
-            <ScoreGauge score={animated} color={gaugeColor} size={268} />
-            <div className="absolute top-[48px] left-0 right-0 flex flex-col items-center gap-2">
+          <div className="relative w-[240px] h-[140px] md:w-[268px] md:h-[160px]">
+            <div className="md:hidden">
+              <ScoreGauge score={animated} color={gaugeColor} size={240} />
+            </div>
+            <div className="hidden md:block">
+              <ScoreGauge score={animated} color={gaugeColor} size={268} />
+            </div>
+            <div className="absolute top-[36px] md:top-[48px] left-0 right-0 flex flex-col items-center gap-2">
               <span
                 className="text-[12px] font-medium leading-4 px-2 py-0.5 rounded-full"
                 style={{ backgroundColor: rankBg, color: rankColor }}
               >
                 {rank}
               </span>
-              <span className="text-[56px] font-semibold leading-[60px] text-black/80 tracking-[0.56px]">
+              <span className="text-[48px] md:text-[56px] font-semibold leading-[52px] md:leading-[60px] text-black/80 tracking-[0.48px] md:tracking-[0.56px]">
                 {animated}
               </span>
             </div>
@@ -401,7 +406,7 @@ function PlatformCard({
         </div>
 
         {/* Criteria bars */}
-        <div className="flex flex-col gap-4 w-full">
+        <div className="flex flex-col gap-3 md:gap-4 w-full">
           {preview.map(c => (
             <CriteriaBar key={c.label} label={c.label} score={c.score} active={started} />
           ))}
@@ -410,7 +415,7 @@ function PlatformCard({
             className="overflow-hidden transition-all duration-300 ease-in-out"
             style={{ maxHeight: expanded ? `${extra.length * 36}px` : '0px' }}
           >
-            <div className="flex flex-col gap-4 pt-0">
+            <div className="flex flex-col gap-3 md:gap-4 pt-0">
               {extra.map(c => (
                 <CriteriaBar key={c.label} label={c.label} score={c.score} active={extraActive} />
               ))}
