@@ -604,13 +604,11 @@ export default function ScoresSection() {
 
       {/* Desktop: horizontal scroll — full viewport width */}
       <div ref={scrollRef} className="hidden md:block w-full overflow-x-auto no-scrollbar">
-        <div
-          className="flex gap-[17px] items-start pb-2"
-          style={{ paddingLeft: trailingPad }}
-        >
-          {cards}
-          {/* Trailing spacer — padding-right on flex containers is ignored by browsers when overflowing */}
-          <div className="flex-shrink-0" style={{ width: trailingPad }} />
+        {/* Block wrapper: padding-right on block elements IS included in scroll width, unlike on flex containers */}
+        <div style={{ paddingLeft: trailingPad, paddingRight: trailingPad }}>
+          <div className="flex gap-[17px] items-start pb-2">
+            {cards}
+          </div>
         </div>
       </div>
 
