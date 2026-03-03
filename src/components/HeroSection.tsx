@@ -29,7 +29,7 @@ export default function HeroSection() {
               <h1 className="font-display font-normal text-[56px] leading-[52px] md:text-[96px] md:leading-[92px] text-black/80">
                 The ultimate website builder comparison
               </h1>
-              <p className="text-[14px] leading-6 text-black/55">
+              <p className="text-[16px] md:text-[14px] leading-6 text-black/55">
                 We built the same business on every major platform and scored them across 12 real-world evaluation criteria. From copy quality to production readiness.
               </p>
             </div>

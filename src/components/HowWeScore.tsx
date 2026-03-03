@@ -215,7 +215,7 @@ export default function HowWeScore() {
         <div className="flex flex-col gap-4 items-center text-center max-w-[480px]">
           <p className="text-[14px] font-semibold leading-5 text-[#7d5d9a]">Full comparison</p>
           <h2 className="font-display text-[48px] leading-[44px] md:text-[72px] md:leading-[68px] text-black/80">How we score</h2>
-          <p className="text-[14px] leading-6 text-black/55">
+          <p className="text-[16px] md:text-[14px] leading-6 text-black/55">
             Every platform was evaluated across 12 criteria, each weighted by its impact on real-world business outcomes. Scores are 0–100; overall scores are weighted averages.
           </p>
         </div>
