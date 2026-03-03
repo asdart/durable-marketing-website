@@ -40,11 +40,11 @@ export default function HeroSection() {
           </button>
         </div>
 
-        {/* Platform illustration — desktop only */}
+        {/* Platform illustration */}
         <img
           src="/illustration-container.png"
           alt="Platform comparison illustration"
-          className="hidden md:block w-full max-w-[1200px] object-contain"
+          className="w-full max-w-[1200px] object-contain"
         />
 
       </div>
